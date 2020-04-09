@@ -3,18 +3,20 @@
 Para probar de manera local:
 
     1 - $git clone https://github.com/manavellam/TestingGorm
-        El archivo go.mod instalara automaticamente las librerias utilizadas. Esto facilita la implementacion.
 
-    2 - modificar el app/config.json con la info(User, Pass, DBname) para acceder a una base de datos, donde se creara la tabla "user"
+    2 - Modificar el app/config.json con la info(User, Pass, DBname) para acceder a una base de datos, donde se creara la tabla "user"
 
-    3 - En postman, colocar los siguiente en el Body para /login/auth:
+    3 - En la terminal de Code $go run main.go
+    El archivo go.mod instalara automaticamente las librerias utilizadas. Esto facilita la implementacion.
+
+    4 - En postman, colocar los siguiente en el Body para /login/auth:
         
             {
                 "Name": "Matias",
                 "Password": "1234"
             }
 
-    4 - Probar los endpoints con el Token devuelto. Para agregar un User(/user/add) atencion a los corchetes:
+    5 - Probar los endpoints con el Token devuelto. Para agregar un User(/user/add) atencion a los corchetes:
             [	        
 	            {
                     "Name": "Nicolas",
