@@ -35,6 +35,7 @@ Estructura del proyecto:
 TestingGorm
 |_App
 | |_config.json           Contiene informacion de configuracion. Ejemplo, puerto del server
+| |_ReadConfig.go         Vuelca info de config.json a struct  
 |_Controllers
 | |_LoginUser.go          Responde a /login/auth, loggea usuario dado un par valido de U+P, y que no este loggeado
 | |_UserAdd.go            Responde a /user/add, agrega usuario a DB dado un token valido
@@ -45,6 +46,7 @@ TestingGorm
 | |_TokenGen.go           Genera un Tkn con tiempo de expiracion para un usuario
 |_Models
 | |_ClaimsJWT.go          Struct utilizada para Claims a agregarse en un JWT (ExpiresAt, Issuer, etc...)
+| |_Config.go             Struct utilizada para cargar los datos de configuracion
 | |_User.go               Struct utilizada para leer y escribir en DB user con GORM
 |_Routes
 | |_loginpaths.go         Agrupa endpoints /login/...
