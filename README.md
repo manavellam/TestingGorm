@@ -1,3 +1,8 @@
+Para correr el proyecto:
+    $go get github.com/gin-gonic/gin 
+    $go get
+    $go get
+
 Estructura del proyecto:
 
 ``` bash

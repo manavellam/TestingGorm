@@ -1,10 +1,11 @@
 package controllers
 
 import (
-	"github/TestingGorm/middleware"
-	"github/TestingGorm/models"
-	"github/TestingGorm/services"
 	"log"
+
+	"github.com/TestingGorm/middleware"
+	"github.com/TestingGorm/models"
+	"github.com/TestingGorm/services"
 
 	"github.com/gin-gonic/gin"
 )

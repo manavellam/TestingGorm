@@ -1,8 +1,9 @@
 package controllers
 
 import (
-	"github/TestingGorm/middleware"
-	"github/TestingGorm/models"
+	"github.com/TestingGorm/models"
+
+	"github.com/TestingGorm/middleware"
 
 	"github.com/gin-gonic/gin"
 )
@@ -13,18 +14,17 @@ func LoginUser(c *gin.Context) {
 		loguser models.User
 	)
 	token := c.GetHeader("Authorization")
-	//Check if already logged in.
+	//Check if already logged in
 	if !middleware.IsTknValid(&token) {
-
 		c.Bind(&loguser)
 		if middleware.IsUser(&loguser) {
 			//Generates Token if valid User info.
 			middleware.TokenGen(&token)
-			c.Header("Authorization", token)
 		} else {
 			c.Writer.Write([]byte("User does not exist"))
 			c.Status(401)
 		}
 	}
+	c.Header("Authorization", token)
 	//REDIRECCIONAR A HOMEPAGE SI TIENE TOKEN VALIDO
 }

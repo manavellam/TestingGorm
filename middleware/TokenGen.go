@@ -1,9 +1,10 @@
 package middleware
 
 import (
-	"github/TestingGorm/models"
 	"log"
 	"time"
+
+	"github.com/TestingGorm/models"
 
 	jwt "github.com/dgrijalva/jwt-go"
 )

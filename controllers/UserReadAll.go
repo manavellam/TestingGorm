@@ -1,10 +1,11 @@
 package controllers
 
 import (
-	"github/TestingGorm/middleware"
-	"github/TestingGorm/models"
-	"github/TestingGorm/services"
 	"log"
+
+	"github.com/TestingGorm/middleware"
+	"github.com/TestingGorm/models"
+	"github.com/TestingGorm/services"
 
 	"github.com/gin-gonic/gin"
 
@@ -14,12 +15,13 @@ import (
 
 //UserReadAll responds to a GET request to /user/read and returns all the user info from the database
 func UserReadAll(c *gin.Context) {
-	var user1 []models.User
+	var usersList []models.User
+
 	token := c.GetHeader("Authorization")
 
 	if middleware.IsTknValid(&token) {
-		services.Query("users", &user1)
-		c.JSON(200, user1)
+		services.Query("users", &usersList)
+		c.JSON(200, usersList)
 	} else {
 		//TOKEN NO VALIDO. REDIRECCIONAR.
 		log.Print("Session time expired")

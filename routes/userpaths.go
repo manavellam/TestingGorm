@@ -1,7 +1,7 @@
 package routes
 
 import (
-	"github/TestingGorm/controllers"
+	"github.com/TestingGorm/controllers"
 
 	"github.com/gin-gonic/gin"
 )

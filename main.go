@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github/TestingGorm/routes"
+	"github.com/TestingGorm/routes"
 )
 
 func main() {
