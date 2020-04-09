@@ -17,7 +17,6 @@ func IsTknValid(t *string) bool {
 		})
 
 		if claims, ok := token.Claims.(*models.MyCustomClaims); ok && token.Valid {
-			log.Print(claims.ExpiresAt, " ", time.Now().Unix())
 			if claims.ExpiresAt > time.Now().Unix() {
 				return true
 			}

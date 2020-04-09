@@ -1,7 +1,30 @@
-Para correr el proyecto:
-    $go get github.com/gin-gonic/gin 
-    $go get
-    $go get
+#VER ESTRUCTURA DEBAJO 
+
+Para probar de manera local:
+
+    1 - $git clone https://github.com/manavellam/TestingGorm
+        El archivo go.mod instalara automaticamente las librerias utilizadas. Esto facilita la implementacion.
+
+    2 - modificar el app/config.json con la info(User, Pass, DBname) para acceder a una base de datos, donde se creara la tabla "user"
+
+    3 - En postman, colocar los siguiente en el Body para /login/auth:
+        
+            {
+                "Name": "Matias",
+                "Password": "1234"
+            }
+
+    4 - Probar los endpoints con el Token devuelto. Para agregar un User(/user/add) atencion a los corchetes:
+            [	        
+	            {
+                    "Name": "Nicolas",
+                    "Password": "4567"
+	            }
+            ]
+
+Durante el proyecto, las funciones utilizan siempre que sea posible punteros. De esta forma se evita ocupar la memoria de manera innecesaria y aumenta la velocidad de respuesta.
+
+Durante las consultas, el middleware provisto por gin tonic arrojara alguna info sobre que consulta llego, a que  endpoint y cuanto demoro la consulta.
 
 Estructura del proyecto:
 
@@ -22,9 +45,9 @@ TestingGorm
 | |_ClaimsJWT.go          Struct utilizada para Claims a agregarse en un JWT (ExpiresAt, Issuer, etc...)
 | |_User.go               Struct utilizada para leer y escribir en DB user con GORM
 |_Routes
-| |_loginpaths.go         Agrupa paths /login/...
+| |_loginpaths.go         Agrupa endpoints /login/...
 | |_routes.go             Configura las routas en el router de GIN GONIC
-| |_userpaths.go          Agrupa paths /user/...
+| |_userpaths.go          Agrupa endpoints /user/...
 |_Services
 | |_Contains.go           Checks if database contains a pair of User+Pass
 | |_DBInit.go             Initiates a  conection with the DB

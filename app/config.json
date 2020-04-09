@@ -1,3 +1,8 @@
 {
-    "Port": ":8080"
+    "ServerPort": ":8080",
+    "MySqlUser": "root",
+    "MySqlPass": "root",
+    "MySqlDB": "Test",
+    "DBSampleUser": "Matias",
+    "DBSamplePass": "1234"
 }
