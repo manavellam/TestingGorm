@@ -2,6 +2,7 @@ package middleware
 
 import (
 	"fmt"
+	"log"
 	"strings"
 
 	"github.com/TestingGorm/models"
@@ -16,12 +17,12 @@ func CheckUserData() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		var us []models.User
 		c.ShouldBindBodyWith(&us, binding.JSON)
-
+		log.Print("MIDDLE AUTH? ", us)
 		for i := range us {
 			if len(strings.TrimSpace(us[i].Name)) != 0 && len(strings.TrimSpace(us[i].Password)) != 0 {
 
 				us[i].Password = util.HashString(us[i].Password)
-				if !services.ContainsUser(&us[i]) {
+				if services.ContainsUser(&us[i]) {
 					AbortWithStatusAndMessage(c, fmt.Sprintf("User with Name: %v already exists.\n", us[i].Name), 403)
 				}
 			} else {

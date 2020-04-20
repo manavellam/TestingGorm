@@ -6,6 +6,7 @@ import (
 
 	"github.com/TestingGorm/app"
 	"github.com/TestingGorm/models"
+	"github.com/TestingGorm/util"
 	"github.com/jinzhu/gorm"
 
 	//Mysqldriver
@@ -36,7 +37,7 @@ func init() {
 	//Creates table for testing purposes
 	database.db.AutoMigrate(&user)
 	user.Name = config.DBSampleUser
-	user.Password = config.DBSamplePass
+	user.Password = util.HashString(config.DBSamplePass)
 
 	if !ContainsUser(&user) {
 		Insert("users", &user)

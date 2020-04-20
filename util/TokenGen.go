@@ -18,11 +18,10 @@ func TokenGen(t *string, u *models.User) {
 		jwt.StandardClaims{
 			ExpiresAt: time.Now().Add(time.Minute * 1).Unix(),
 			Issuer:    "test",
-			Subject:   HashString(u.Name),
+			Subject:   u.Name, //Aqui si podria encodear con blow,
 		},
 	}
 
-	log.Print("Hashed user: ", HashString(u.Name))
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
 
 	var err error
