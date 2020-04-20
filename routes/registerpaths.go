@@ -3,13 +3,12 @@ package routes
 import (
 	"github.com/TestingGorm/controllers"
 	"github.com/TestingGorm/middleware"
-
 	"github.com/gin-gonic/gin"
 )
 
-func loginpaths(r *gin.Engine) {
-	l := r.Group("/login")
+func registerpaths(r *gin.Engine) {
+	u := r.Group("/register")
 	{
-		l.POST("/auth", middleware.CheckUserData(), controllers.LoginUser)
+		u.POST("/", middleware.CheckUserData(), controllers.UserRegister)
 	}
 }
