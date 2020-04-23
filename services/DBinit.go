@@ -38,6 +38,11 @@ func init() {
 	database.db.AutoMigrate(&user)
 	user.Name = config.DBSampleUser
 	user.Password = util.HashString(config.DBSamplePass)
+	user.AccessLevelID = config.DBSampleAccess
+	user.MembershipID = config.DBSampleMember
+
+	//database.db.Where("id = ?", &user.MembershipID).Find(&user.Membership)
+	//database.db.Where("id = ?", &user.AccessLevelID).Find(&user.AccessLevels)
 
 	if !ContainsUser(&user) {
 		Insert("users", &user)

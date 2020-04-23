@@ -1,3 +1,3 @@
-agregar middleware para chequear datos en ruta register
+
 Agrupar todo en /V1/...
-ver la libreria  de configs
+error management en gorm??
