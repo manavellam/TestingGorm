@@ -1,3 +1,2 @@
-
 Agrupar todo en /V1/...
 error management en gorm??

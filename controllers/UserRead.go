@@ -16,8 +16,10 @@ func UserRead(c *gin.Context) {
 	if err != nil {
 		log.Print(err)
 	}
+
 	u.ID = uint(a)
 	if services.ContainsUser(&u) {
+		services.RelateUser(&u)
 		c.JSON(200, u)
 	} else {
 		c.Writer.WriteHeader(403)

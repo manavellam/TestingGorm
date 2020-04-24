@@ -14,5 +14,8 @@ import (
 func UserReadAll(c *gin.Context) {
 	var usersList []models.User
 	services.Query("users", &usersList)
+	for i := range usersList {
+		services.RelateUser(&usersList[i])
+	}
 	c.JSON(200, usersList)
 }
