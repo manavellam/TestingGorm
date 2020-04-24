@@ -3,7 +3,6 @@ package controllers
 import (
 	"log"
 
-	"github.com/TestingGorm/middleware"
 	"github.com/TestingGorm/models"
 	"github.com/TestingGorm/services"
 	"github.com/TestingGorm/util"
@@ -29,6 +28,6 @@ func LoginUser(c *gin.Context) {
 		log.Print()
 		c.Header("Authorization", token)
 	} else {
-		middleware.AbortWithStatusAndMessage(c, "Controller: User does not exist", 401)
+		util.AbortWithStatusAndMessage(c, "Controller: User does not exist", 401)
 	}
 }

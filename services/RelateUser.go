@@ -8,5 +8,6 @@ import (
 func RelateUser(u *models.User) {
 	database.db.Model(u).Related(&((*u).Membership))
 	database.db.Model(u).Related(&((*u).AccessLevels))
+	database.db.Model(u).Related(&((*u).Creditcards))
 	//log.Print(database.db.Model(&u).Related(&u.Membership).Error)
 }

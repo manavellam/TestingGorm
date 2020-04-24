@@ -9,8 +9,10 @@ type User struct {
 	MembershipID int `gorm:"NOT NULL"`
 	Membership   Membership
 	//EACH USER BELONGS TO ONE ACCES LEVEL
-	AccessLevelsID string `gorm:"NOT NULL"`
+	AccessLevelsID int `gorm:"NOT NULL"`
 	AccessLevels   AccessLevels
+	//EACH USER HAS MANY CREDIT CARDS
+	Creditcards []Creditcard
 	//-----------------------------------
 	Name     string `gorm:"NOT NULL"`
 	Password string `gorm:"NOT NULL"`

@@ -39,7 +39,7 @@ func init() {
 	database.db.AutoMigrate(&user)
 	user.Name = config.DBSampleUser
 	user.Password = util.HashString(config.DBSamplePass)
-	user.AccessLevelsID = config.DBSampleAccess
+	user.AccessLevelsID, _ = strconv.Atoi(config.DBSampleAccess)
 	user.MembershipID, _ = strconv.Atoi(config.DBSampleMember)
 
 	//database.db.Where("id = ?", &user.MembershipID).Find(&user.Membership)

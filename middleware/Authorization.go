@@ -4,6 +4,7 @@ import (
 	"log"
 
 	"github.com/TestingGorm/models"
+	"github.com/TestingGorm/util"
 	"github.com/gin-gonic/gin"
 
 	jwt "github.com/dgrijalva/jwt-go"
@@ -20,15 +21,16 @@ func Authorization() gin.HandlerFunc {
 			})
 			if err != nil {
 				log.Print("AUTH ERR: ", err)
-				AbortWithStatusAndMessage(c, "Token expired or invalid, please log in again.", 418)
+				util.AbortWithStatusAndMessage(c, "Token expired or invalid, please log in again.", 418)
 				return
 			}
 
 			if claims, ok := token.Claims.(*models.MyCustomClaims); ok && token.Valid {
 				log.Print("Read User From Token: ", claims.Subject)
+				c.Set("username", claims.Subject)
 			}
 		} else {
-			AbortWithStatusAndMessage(c, "No token found. Please log in again.", 401)
+			util.AbortWithStatusAndMessage(c, "No token found. Please log in again.", 401)
 		}
 	}
 }
