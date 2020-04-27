@@ -14,6 +14,8 @@ type User struct {
 	//EACH USER HAS MANY CREDIT CARDS
 	Creditcards []Creditcard
 	//-----------------------------------
+	Products []*Product `gorm:"many2many:user_products;"`
+	//-----------------------------------
 	Name     string `gorm:"NOT NULL"`
 	Password string `gorm:"NOT NULL"`
 }

@@ -42,9 +42,6 @@ func init() {
 	user.AccessLevelsID, _ = strconv.Atoi(config.DBSampleAccess)
 	user.MembershipID, _ = strconv.Atoi(config.DBSampleMember)
 
-	//database.db.Where("id = ?", &user.MembershipID).Find(&user.Membership)
-	//database.db.Where("id = ?", &user.AccessLevelsID).Find(&user.AccessLevels)
-
 	if !ContainsUser(&user) {
 		Insert("users", &user)
 	}

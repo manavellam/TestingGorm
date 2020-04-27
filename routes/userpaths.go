@@ -13,6 +13,7 @@ func userpaths(r *gin.Engine) {
 		u.GET("/readall", controllers.UserReadAll)
 		u.GET("/read/:id", controllers.UserRead)
 		u.POST("/add/creditcard", controllers.AddCreditcard)
+		u.POST("/purchase", controllers.Purchase)
 	}
 
 }
