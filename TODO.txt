@@ -1,4 +1,2 @@
 Agrupar todo en /V1/...
 error management en gorm??
-
-Probar auto pre-load en read all

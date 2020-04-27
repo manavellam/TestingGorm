@@ -10,5 +10,6 @@ func Routes() *gin.Engine {
 	userpaths(router)
 	loginpaths(router)
 	registerpaths(router)
+	adminpaths(router)
 	return router
 }
