@@ -14,5 +14,8 @@ import (
 func UserReadAll(c *gin.Context) {
 	var usersList []models.User
 	services.Query("users", &usersList)
+	c.Header("Access-Control-Allow-Origin", "*")
+	c.Header("Access-Control-Allow-Headers", "*,Authorization")
+	c.Header("Access-Control-Expose-Headers", "Authorization")
 	c.JSON(200, usersList)
 }

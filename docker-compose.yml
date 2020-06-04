@@ -1,0 +1,40 @@
+version: '2.0'
+
+services:   
+    front: 
+        image: httpd:2.4
+        ports: 
+            - "8080:80"
+        networks: 
+            - backend
+        volumes: 
+            - ./httpd:/usr/local/apache2/htdocs/
+        
+    db:
+        image: mydb
+        environment: 
+            MYSQL_ROOT_PASSWORD: root
+        expose:
+            - "3306"
+        networks:
+            - backend
+        restart: always
+        #volumes: 
+        #    - ./services/data:/var/lib/mysql
+
+    myapp:
+        #build: 
+        #   context: .
+        image: myapp
+        #ports: 
+        #    - "8080:8080"
+        ports: 
+            - "8085:8085"
+        depends_on:
+            - db
+        networks:
+            - backend
+        restart: always
+
+networks: 
+    backend:

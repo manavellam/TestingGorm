@@ -18,7 +18,9 @@ func UserRegister(c *gin.Context) {
 		loaduser []models.User
 	)
 	errs := make(map[string]string)
+
 	c.Bind(&loaduser)
+
 	for i, u := range loaduser {
 		if len(strings.TrimSpace(u.Name)) != 0 && len(strings.TrimSpace(u.Password)) != 0 {
 			u.Password = util.HashString(u.Password)
@@ -36,11 +38,16 @@ func UserRegister(c *gin.Context) {
 			}
 		}
 	}
-	log.Print("ERRS:", errs)
+
 	if len(errs) > 0 {
+		fmt.Println("ERRORES!!")
+		c.Header("Access-Control-Allow-Origin", "*")
+		c.Header("Access-Control-Allow-Headers", "*")
 		c.Writer.Write([]byte(fmt.Sprintf("Errors occur during insertion of data. Following users were not added: %v", errs)))
 	} else {
-		c.Writer.WriteHeader(200)
+		fmt.Println("NO ERRORES!")
+		c.Header("Access-Control-Allow-Origin", "*")
+		c.Header("Access-Control-Allow-Headers", "*")
 		c.Writer.WriteString("User(s) succesfuly registered into DB.")
 	}
 }
