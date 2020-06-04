@@ -1,9 +1,6 @@
 package controllers
 
 import (
-	"log"
-
-	"github.com/TestingGorm/middleware"
 	"github.com/TestingGorm/models"
 	"github.com/TestingGorm/services"
 	"github.com/TestingGorm/util"
@@ -19,16 +16,20 @@ func LoginUser(c *gin.Context) {
 	)
 
 	c.Bind(&loguser)
-
 	loguser.Password = util.HashString(loguser.Password)
-	log.Print("INFO:", loguser)
 	if services.ContainsUser(&loguser) {
-
 		//Generates Token if valid User info.
 		util.TokenGen(&token, &loguser)
-		log.Print()
 		c.Header("Authorization", token)
+		c.Header("Access-Control-Allow-Origin", "*")
+		c.Header("Access-Control-Allow-Headers", "*")
+		c.Header("Access-Control-Expose-Headers", "Authorization")
+
 	} else {
-		middleware.AbortWithStatusAndMessage(c, "Controller: User does not exist", 401)
+		c.Header("Authorization", "Not-Authorized ")
+		c.Header("Access-Control-Allow-Origin", "*")
+		c.Header("Access-Control-Allow-Headers", "*")
+		c.Header("Access-Control-Expose-Headers", "Authorization")
+		util.AbortWithStatusAndMessage(c, "Controller: User does not exist", 401)
 	}
 }

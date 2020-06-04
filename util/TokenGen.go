@@ -16,7 +16,7 @@ func TokenGen(t *string, u *models.User) {
 
 	claims := models.MyCustomClaims{
 		jwt.StandardClaims{
-			ExpiresAt: time.Now().Add(time.Minute * 1).Unix(),
+			ExpiresAt: time.Now().Add(time.Minute * 60).Unix(),
 			Issuer:    "test",
 			Subject:   u.Name, //Aqui si podria encodear con blow,
 		},

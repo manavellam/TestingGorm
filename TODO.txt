@@ -1,3 +1,5 @@
-agregar middleware para chequear datos en ruta register
 Agrupar todo en /V1/...
-ver la libreria  de configs
+error management en gorm??
+
+Cuando hay error en registrar devuelve 200 OK!!
+CONFIGURAR QUE ESPERE DB INICIALIZADA. AGREGAR DB Test DE ARRANQUE.

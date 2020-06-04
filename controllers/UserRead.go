@@ -6,6 +6,7 @@ import (
 
 	"github.com/TestingGorm/models"
 	"github.com/TestingGorm/services"
+	"github.com/TestingGorm/util"
 	"github.com/gin-gonic/gin"
 )
 
@@ -16,12 +17,12 @@ func UserRead(c *gin.Context) {
 	if err != nil {
 		log.Print(err)
 	}
+
 	u.ID = uint(a)
 	if services.ContainsUser(&u) {
 		c.JSON(200, u)
 	} else {
-		c.Writer.WriteHeader(403)
-		c.Writer.Write([]byte("User does not exist"))
+		util.AbortWithStatusAndMessage(c, "User does not exist", 403)
 	}
 
 }

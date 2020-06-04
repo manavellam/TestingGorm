@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testing Docker</title>
+    <link rel="stylesheet" href="styles/estilos.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <img src="img/gopher.png" alt=""  width="200px" class="gopher">
+            <h2>Test Enviroment for Containerized Web-APIs</h2>
+        </div>
+        <div class="intro">
+            <div class="desc">
+                <h2>Introduction</h2>
+                <p>
+                    This API consist in a solution with 4 containers deployed within a stack orchestrated by swarm. The containers used are:
+                </p>
+                <div class="list">
+                    <ul>
+                        <li>Nginx: Proxi, redirects to httpd server</li>
+                        <li>Httpd: Apache server, 1 replica</li>
+                        <li>Golang: Backend App, 1 replica</li>
+                        <li>MySQL: Databases, 1 replica</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="main">
+        <div class="box login">
+        
+            <form action="" class="loginform" >
+                <h3 class="title">Login to get Token</h3>
+                <input type="text" class="text" id="loginuser" placeholder="User">
+                <input type="password" class="text" id="loginpass" placeholder="Password">
+                <button class="btn" id="login">Login</button>
+            </form>
+            <div class="resp" id="dtoken">
+            </div>
+        </div>
+
+        <div class="box readall">
+
+            <div class="forms">
+                <form action="" class="qaform">
+                    <h3 class="title">Query the entirsasde DB</h3>
+                    <input type="text" class= "tokenid" id="tokenid" placeholder="Token"> 
+                    <button class="btnall" id="getall">Query All</button>
+                </form>
+    
+                <form action="" class="regform">
+                    <h3 class="title">Register</h3>
+                    <input type="text" class= "text" id="regname" placeholder="Name">
+                    <input type="password" class="text" id="regpass" placeholder="Pass"> 
+
+                    <select class="text regm" id="memID" name="cars" title="Membership">
+                        <option disabled selected>Membership ID</option>
+                        <option value=1>Basic</option>
+                        <option value=2>Silver</option>
+                        <option value=3>Gold</option>
+                    </select>
+
+                    <select class="text regal" id="access" name="cars" title="AccesLevel">
+                        <option disabled selected>Access Level</option>
+                        <option value=11>Client</option>
+                        <option value=12>Sales</option>
+                        <option value=13>Chief of Sales</option>
+                    </select>
+    
+                    <button class="btnall" id="reg">Register</button>
+                </form>
+            </div>
+            
+            
+            <div class="dreadall" id="dreadall">
+                <pre id="json"></pre>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/function.js"></script>
+
+    <footer></footer>
+</body>
+</html>

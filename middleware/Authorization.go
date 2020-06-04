@@ -2,9 +2,9 @@ package middleware
 
 import (
 	"log"
-	"time"
 
 	"github.com/TestingGorm/models"
+	"github.com/TestingGorm/util"
 	"github.com/gin-gonic/gin"
 
 	jwt "github.com/dgrijalva/jwt-go"
@@ -21,17 +21,16 @@ func Authorization() gin.HandlerFunc {
 			})
 			if err != nil {
 				log.Print("AUTH ERR: ", err)
-				AbortWithStatusAndMessage(c, "Token expired or invalid, please log in again.", 418)
+				util.AbortWithStatusAndMessage(c, "Token expired or invalid, please log in again.", 418)
 				return
 			}
 
 			if claims, ok := token.Claims.(*models.MyCustomClaims); ok && token.Valid {
-				if claims.ExpiresAt < time.Now().Unix() {
-					log.Print("Read User From Token: ", claims.Subject)
-				}
+				log.Print("Read User From Token: ", claims.Subject)
+				c.Set("username", claims.Subject)
 			}
 		} else {
-			AbortWithStatusAndMessage(c, "No token found. Please log in again.", 403)
+			util.AbortWithStatusAndMessage(c, "No token found. Please log in again.", 401)
 		}
 	}
 }
