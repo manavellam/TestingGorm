@@ -36,11 +36,12 @@ func init() {
 	//(docker.for.mac.localhost)
 
 	//This statement works in compose, where address is not localhost but <db-service name>
-	mySQLStmt := fmt.Sprintf("%v:%v@(db)/%v?charset=utf8&parseTime=True&loc=Local", config.MySQLUser, config.MySQLPass, config.MySQLDB)
+	mySQLStmt := fmt.Sprintf("%v:%v@(mydb)/%v?charset=utf8&parseTime=True&loc=Local", config.MySQLUser, config.MySQLPass, config.MySQLDB)
 
 	//This statement works with db in localhost
 	//mySQLStmt := fmt.Sprintf("%v:%v@/%v?charset=utf8&parseTime=True&loc=Local", config.MySQLUser, config.MySQLPass, config.MySQLDB)
 	database.db, err = gorm.Open("mysql", mySQLStmt)
+	log.Println(err)
 	for err != nil {
 		log.Print("Trying to connect...")
 		log.Println(err)
@@ -62,5 +63,4 @@ func init() {
 	if !ContainsUser(&user) {
 		Insert("users", &user)
 	}
-
 }

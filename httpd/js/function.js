@@ -23,7 +23,7 @@
         myHeaders.append("Content-Type", "application/json");
         var raw = JSON.stringify({"Name": loginUN.value,"Password":loginPass.value});
         var requestOptions = { method: 'POST', origin: "http://", headers: myHeaders, body: raw, redirect: 'follow'};
-        fetch("http://localhost:8085/login/auth", requestOptions).then(function(response) {
+        fetch("http://myapp.127.0.0.1.nip.io/login/auth", requestOptions).then(function(response) {
                 token = response.headers.get('Authorization'); 
                 document.getElementById('dtoken').textContent=token
                 inputToken.value=token
@@ -36,7 +36,7 @@
         myHeaders.append("Content-Type", "application/json");
         myHeaders.append("Authorization", inputToken.value)
         var requestOptions = {method: 'GET', origin: "http://localhost", headers: myHeaders, redirect: 'follow'};
-        fetch("http://localhost:8085/user/readall", requestOptions).then(function(response) {
+        fetch("http://myapp.127.0.0.1.nip.io/user/readall", requestOptions).then(function(response) {
             return response.json();
           }).then(function(myJson) {
             console.log(JSON.stringify(myJson,null, 2));
@@ -51,7 +51,7 @@
         var raw = JSON.stringify([{"Name": regname.value,"Password":regpass.value, "MembershipID": parseInt(memID.value),"AccessLevelsID":parseInt(acceslvl.value)}]);
         console.log(raw)
         var requestOptions = {method: 'POST', origin: "http://localhost", headers: myHeaders, body: raw , redirect: 'follow'};
-        fetch("http://localhost:8085/register/", requestOptions).then(
+        fetch("http://myapp.127.0.0.1.nip.io/register/", requestOptions).then(
             response => response.text()
             ).then(result => document.getElementById('json').textContent = result).catch(error => console.log('error', error));
         e.preventDefault()

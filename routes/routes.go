@@ -11,5 +11,10 @@ func Routes() *gin.Engine {
 	loginpaths(router)
 	registerpaths(router)
 	adminpaths(router)
+	router.GET("/", func(c *gin.Context) {
+		c.JSON(200, gin.H{
+			"message": "It works!",
+		})
+	})
 	return router
 }
