@@ -12,9 +12,7 @@ func Routes() *gin.Engine {
 	registerpaths(router)
 	adminpaths(router)
 	router.GET("/", func(c *gin.Context) {
-		c.JSON(200, gin.H{
-			"message": "It works!",
-		})
+		c.Data(200, "text/html; charset=utf-8", []byte("<h1>Your go-app is working!</h1>"))
 	})
 	return router
 }

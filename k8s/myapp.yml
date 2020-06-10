@@ -18,7 +18,7 @@ spec:
         app: myapp
     spec:
       containers:
-      - image: manavellam/myapp
+      - image: manavellam/myapp:v1.0
         name: myapp
         resources: {}
 status: {}

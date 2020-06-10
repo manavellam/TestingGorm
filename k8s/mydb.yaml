@@ -17,7 +17,7 @@ spec:
         app: mydb
     spec:
       containers:
-      - image: manavellam/mydb
+      - image: manavellam/mydb:v1.0
         name: mydb
         resources: {}
 status: {}
