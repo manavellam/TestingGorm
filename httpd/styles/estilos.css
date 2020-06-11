@@ -1,0 +1,184 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: #FBFBFC;
+    font-family: "Open Sans",sans-serif;
+}
+
+header .header-container{
+    background: #0db7ed;
+    max-width: 1000;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+    color: #384d54;
+    display: flex;
+    align-items: center;
+}
+
+header .header-container h2{
+    color: white;
+    padding: 20px;
+    font-size: 36px;
+    display: inline-block;
+}
+
+header .header-container .gopher{
+    display: inline-block;
+}
+
+header .intro{
+    background: #f2f3f5;
+    font-size: 15px;
+    color: #384d54;
+    text-align: center;
+}
+
+header .intro .desc{
+    width: 800px;
+    text-align: left;
+    margin: 0px auto;
+}
+
+header .intro p{
+    text-align: center;
+}
+header .intro h2{
+    font-size: 32px;
+}
+header .intro .list{
+    max-width: 500px;
+    text-align: left;
+    margin: 10px auto;
+    padding-bottom: 10px;
+
+}
+
+header .intro ul{
+    width: 500px;
+    margin: 10px 20px;
+}
+/* #002c66 */
+
+.main .box{
+    width: 1000px;
+    margin: auto auto;
+    border: black 2px solid;
+    display: flex;
+    justify-content: center;
+    border-radius: 15px;
+    background: #002c66 ;
+    margin-bottom: 20px;
+}
+
+/* ----------LogIn---------- */
+.main .login form{
+    width: 250;
+    display: inline-block;
+    border: white 2px solid;
+    border-radius: 10px;
+    margin: 10px 0px 10px 0px;
+}
+.main .login .text{
+    display: block;
+    border-radius: 3px;
+    border: none;
+    width: 250px;
+    margin: 10px;
+    padding: 2px;
+}
+.main .login .btn{
+    margin: 0px 10px 10px;
+    width: 250px;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    background: #0db7ed;
+    color: white;
+}
+.main .login .resp{
+    display: inline-block;
+    background: #f2f3f5;
+    overflow-wrap: break-word;
+    width: 600px;
+    height: 135px;
+    margin: 10px;
+   
+}
+.main .login .title{
+    color: white;
+    text-align: center;
+    font-size: 16px;
+    margin: 10px 0px 0px 0px;
+}
+/* ------------------------- */
+
+.main .readall .forms{
+    width: 250;
+    display: inline-block;
+}
+/* ----------Query All---------- */
+.main .readall .qaform{
+    border: white 2px solid;
+    border-radius: 10px;
+    margin: 10px 0px 10px 0px;
+}
+.main .readall .title{
+    color: white;
+    text-align: center;
+    font-size: 16px;
+    margin: 10px 0px 0px 0px;
+}
+.main .readall .tokenid{
+    display: block;
+    border-radius: 3px;
+    border: none;
+    width: 250px;
+    margin: 10px;
+    padding: 2px;
+}
+.main .readall .btnall{
+    margin: 0px 10px 10px;
+    width: 250px;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    background: #0db7ed;
+    color: white;
+}
+.main .readall .dreadall{
+    display: inline-block;
+    background: #f2f3f5;
+    overflow-wrap: break-word;
+    overflow: scroll;
+    width: 600px;
+    margin: 10px;
+    height: 312px;
+}
+/* ----------------------------- */
+
+/* ----------Register---------- */
+.main .readall .regform .text{
+    display: block;
+    border-radius: 3px;
+    border: none;
+    width: 250px;
+    margin: 10px;
+    padding: 2px;
+}
+.main .readall .regform .title{
+    color: white;
+    text-align: center;
+    font-size: 16px;
+    margin: 10px 0px 0px 0px;
+}
+.main .readall .regform {
+    border: white 2px solid;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+/* ---------------------------- */

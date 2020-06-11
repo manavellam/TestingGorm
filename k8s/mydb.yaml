@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: mydb
+  name: mydb
+spec:
+  selector:
+    matchLabels:
+      app: mydb
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: mydb
+    spec:
+      containers:
+      - image: manavellam/mydb:v1.0
+        name: mydb
+        resources: {}
+status: {}

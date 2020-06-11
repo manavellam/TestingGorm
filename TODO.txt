@@ -1,0 +1,5 @@
+Agrupar todo en /V1/...
+error management en gorm??
+
+Cuando hay error en registrar devuelve 200 OK!!
+CONFIGURAR QUE ESPERE DB INICIALIZADA. AGREGAR DB Test DE ARRANQUE.

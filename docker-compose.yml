@@ -1,0 +1,38 @@
+version: '2.0'
+
+services:   
+    front: 
+        image: httpd:2.4
+        ports: 
+            - "8080:80"
+        networks: 
+            - backend
+        #Bindmounting the html files is more practical when it come to changes.
+        volumes: 
+            - ./httpd:/usr/local/apache2/htdocs/
+        
+    db:
+        image: mydb
+        environment: 
+            MYSQL_ROOT_PASSWORD: root
+        expose:
+            - "3306"
+        networks:
+            - backend
+        restart: always
+
+    myapp:
+        #Building is possible in compose, but no in Swarm
+        #build: 
+        #   context: .
+        image: myapp
+        ports: 
+            - "8085:8085"
+        depends_on:
+            - db
+        networks:
+            - backend
+        restart: always
+#All containers communicate through this network
+networks: 
+    backend:
