@@ -1,3 +1,4 @@
+#For swarm version 3.0 shuld be used
 version: '2.0'
 
 services:   
@@ -7,12 +8,12 @@ services:
             - "8080:80"
         networks: 
             - backend
-        #Bindmounting the html files is more practical when it come to changes.
+        #Bindmounting the html files is more practical when it comes to changes.
         volumes: 
             - ./httpd:/usr/local/apache2/htdocs/
         
-    db:
-        image: mydb
+    mydb:
+        image: manavellam/mydb:v1.0
         environment: 
             MYSQL_ROOT_PASSWORD: root
         expose:
@@ -22,14 +23,14 @@ services:
         restart: always
 
     myapp:
-        #Building is possible in compose, but no in Swarm
+        #Building is possible in compose, but not in Swarm
         #build: 
         #   context: .
-        image: myapp
+        image: manavellam/myapp:v1.0
         ports: 
             - "8085:8085"
         depends_on:
-            - db
+            - mydb
         networks:
             - backend
         restart: always

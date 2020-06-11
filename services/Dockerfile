@@ -2,7 +2,7 @@
 FROM mysql:8.0
 #Copying db's initialization files
 COPY ./sql-scripts/ /docker-entrypoint-initdb.d/
-
+#This info should be in secrets
 ENV MYSQL_ROOT_PASSWORD "root"
 
 EXPOSE 3306 33060
